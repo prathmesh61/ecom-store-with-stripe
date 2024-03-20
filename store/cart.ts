@@ -23,7 +23,7 @@ export const useCartStore = create<CartStore>(
       remove(product) {
         const { cart } = get();
         const itemExists = cart.find((item) => item.id === product.id);
-        if (itemExists?.quantity! >= 1) {
+        if (itemExists?.quantity! >= 2) {
           itemExists!.quantity--;
           set({ cart: [...cart] });
         } else {
