@@ -14,11 +14,11 @@ const Products = async (props: Props) => {
   );
 
   return (
-    <section className="w-full flex flex-col gap-y-5">
+    <section className=" w-full flex flex-col gap-y-5">
       <div className="w-full flex items-center justify-center flex-wrap gap-8">
         {products.slice(0, 5).map((item) => (
           <div
-            className="w-full max-w-[280px] h-full bg-white shadow-md"
+            className="w-full max-w-[280px] h-full  min-h-[400px]  bg-white shadow-md"
             key={item.id}
           >
             <Product item={item} />
@@ -38,7 +38,7 @@ const Products = async (props: Props) => {
       <div className="w-full flex items-center justify-center flex-wrap gap-8">
         {products.slice(6, products.length).map((item) => (
           <div
-            className="w-full max-w-[280px]  min-h-[400px] bg-white shadow-md"
+            className="w-full max-w-[280px] h-full  min-h-[400px]  bg-white shadow-md "
             key={item.id}
           >
             <Product item={item} />

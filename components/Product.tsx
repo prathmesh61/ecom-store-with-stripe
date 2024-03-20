@@ -12,7 +12,7 @@ type Props = {
 const Product = ({ item }: Props) => {
   const { add: handleAddToCart } = useCartStore();
   return (
-    <div className="flex flex-col justify-between gap-y-2 p-4">
+    <div className="w-full h-full flex flex-col items-center justify-between gap-y-2 p-4 ">
       <div className="flex items-center justify-center">
         <Image
           src={item.image}

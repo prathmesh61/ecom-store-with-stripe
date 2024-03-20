@@ -33,7 +33,7 @@ const CartProduct = ({ item }: Props) => {
         <p className="text-sm font-extrabold text-black/50">
           Quantity: {item.quantity}
         </p>
-        <p className="text-xl font-extrabold text-black">${item.price}</p>
+        <p className="text-xl font-extrabold text-black">₹{item.price}</p>
         <Button variant={"destructive"} onClick={() => removeFromCart(item)}>
           remove
         </Button>
