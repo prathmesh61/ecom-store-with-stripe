@@ -1,5 +1,13 @@
 import React from "react";
 import { MapPin, Search, ShoppingBasketIcon } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 type Props = {};
 
 const Header = (props: Props) => {
@@ -41,10 +49,23 @@ const Header = (props: Props) => {
             <span className="text-xs">Returens</span>
             <span className="text-xs font-bold">& Orders</span>
           </div>
-          <div className="flex items-center">
-            <ShoppingBasketIcon width={26} height={26} />
-            <span className="text-sm font-bold">0</span>
-          </div>
+          <Sheet>
+            <SheetTrigger>
+              <div className="flex items-center">
+                <ShoppingBasketIcon width={26} height={26} />
+                <span className="text-sm font-bold">0</span>
+              </div>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Are you absolutely sure?</SheetTitle>
+                <SheetDescription>
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
