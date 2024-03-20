@@ -1,4 +1,4 @@
-type Product = {
+interface Product {
   id: number;
   title: string;
   price: number;
@@ -9,4 +9,7 @@ type Product = {
     rate: number;
     count: number;
   };
-};
+}
+interface CartItem extends Product {
+  quantity: number;
+}

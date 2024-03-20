@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { MapPin, Search, ShoppingBasketIcon } from "lucide-react";
 import {
@@ -8,9 +9,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useCartStore } from "@/store/cart";
+import CartProduct from "../CartProduct";
 type Props = {};
 
 const Header = (props: Props) => {
+  const { cart } = useCartStore();
+  console.log(cart);
+
   return (
     <header className="w-full h-[60px] bg-bgNavPrimary text-white px-10 py-4">
       <div className="flex items-center gap-4">
@@ -53,15 +59,26 @@ const Header = (props: Props) => {
             <SheetTrigger>
               <div className="flex items-center">
                 <ShoppingBasketIcon width={26} height={26} />
-                <span className="text-sm font-bold">0</span>
+                <span className="text-sm font-bold">{cart.length}</span>
               </div>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="overflow-y-auto">
               <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
+                <SheetTitle>Cart</SheetTitle>
                 <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
+                  <div className="flex flex-col gap-8 mt-5">
+                    {cart.length > 0 ? (
+                      cart.map((item) => (
+                        <CartProduct item={item} key={item.id} />
+                      ))
+                    ) : (
+                      <>
+                        <p className="font-bold font-mono">
+                          Zero products in cart
+                        </p>
+                      </>
+                    )}
+                  </div>
                 </SheetDescription>
               </SheetHeader>
             </SheetContent>
