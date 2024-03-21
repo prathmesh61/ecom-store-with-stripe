@@ -22,8 +22,11 @@ const Product = ({ item }: Props) => {
           alt={item.title}
         />
       </div>
-      <div className="flex flex-col gap-y-3">
-        <h2 className="text-xs font-semibold mt-3">{item.title}</h2>
+      <div className="flex flex-col gap-y-2">
+        <h2 className="text-xs font-semibold ">{item.title}</h2>
+        <h3 className="text-xl font-extrabold font-mono mt-3 ">
+          ₹{item.price}
+        </h3>
         <p className="text-[12px] font-light ">
           {item.description.slice(0, 100) + "..."}
         </p>
